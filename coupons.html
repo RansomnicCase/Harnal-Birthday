@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Coupons 🎀</title>
+  <meta name="description" content="Your collection of birthday coupons.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Music Toggle -->
+  <button class="music-toggle" id="music-btn" aria-label="Toggle music" title="Toggle music">💿</button>
+  <audio id="bg-music" loop>
+    <source src="Poh Di Raat.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Backdrop blur overlay when a card is opened -->
+  <div class="overlay" id="wallet-overlay"></div>
+
+  <main class="coupons-container">
+    <h1 class="coupons-header" id="coupons-heading">your coupons 🎀</h1>
+
+    <div class="wallet-stack" id="wallet-stack">
+      
+      <!-- Coupon 1: Twerk Video -->
+      <div class="coupon-card pink" id="coupon-1" role="button" aria-expanded="false" tabindex="0">
+        <button class="coupon-close-btn" aria-label="Close coupon">&times;</button>
+        <div class="coupon-main">
+          <h2 class="coupon-title">Twerk Video from Work</h2>
+          <p class="coupon-description">Redeemable anytime. No context needed, no questions asked.</p>
+          <button class="coupon-redeem-btn" aria-label="Redeem coupon">Redeem Coupon 🎟️</button>
+          <div class="coupon-stamp">FOR HARNAL &hearts;</div>
+        </div>
+        <div class="coupon-divider-wrap">
+          <div class="coupon-perforated-line"></div>
+        </div>
+        <div class="coupon-stub">
+          <span>💃</span>
+        </div>
+      </div>
+
+      <!-- Coupon 2: Elevator Speech -->
+      <div class="coupon-card lavender" id="coupon-2" role="button" aria-expanded="false" tabindex="0">
+        <button class="coupon-close-btn" aria-label="Close coupon">&times;</button>
+        <div class="coupon-main">
+          <h2 class="coupon-title">Elevator Speech</h2>
+          <p class="coupon-description">Have me say something random in a lift full of people (not totally embarrassing, but enough to make it funny).</p>
+          <button class="coupon-redeem-btn" aria-label="Redeem coupon">Redeem Coupon 🎟️</button>
+          <div class="coupon-stamp">FOR HARNAL &hearts;</div>
+        </div>
+        <div class="coupon-divider-wrap">
+          <div class="coupon-perforated-line"></div>
+        </div>
+        <div class="coupon-stub">
+          <span>🛗</span>
+        </div>
+      </div>
+
+      <!-- Coupon 3: Superyou -->
+      <div class="coupon-card mint" id="coupon-3" role="button" aria-expanded="false" tabindex="0">
+        <button class="coupon-close-btn" aria-label="Close coupon">&times;</button>
+        <div class="coupon-main">
+          <h2 class="coupon-title">Superyou 🍫</h2>
+          <p class="coupon-description">Redeemable an infinite amount of times. Have me order you a Superyou protein bar whenever you want.</p>
+          <button class="coupon-redeem-btn" aria-label="Redeem coupon">Redeem Coupon 🎟️</button>
+          <div class="coupon-stamp">FOR HARNAL &hearts;</div>
+        </div>
+        <div class="coupon-divider-wrap">
+          <div class="coupon-perforated-line"></div>
+        </div>
+        <div class="coupon-stub">
+          <span>🍫</span>
+        </div>
+      </div>
+
+      <!-- Coupon 4: Mommy Call -->
+      <div class="coupon-card peach" id="coupon-4" role="button" aria-expanded="false" tabindex="0">
+        <button class="coupon-close-btn" aria-label="Close coupon">&times;</button>
+        <div class="coupon-main">
+          <h2 class="coupon-title">The "Mommy" Call</h2>
+          <p class="coupon-description">I must call you "mommy" in front of my mom while we are all on a call together. Maximum bravery required.</p>
+          <button class="coupon-redeem-btn" aria-label="Redeem coupon">Redeem Coupon 🎟️</button>
+          <div class="coupon-stamp">FOR HARNAL &hearts;</div>
+        </div>
+        <div class="coupon-divider-wrap">
+          <div class="coupon-perforated-line"></div>
+        </div>
+        <div class="coupon-stub">
+          <span>📞</span>
+        </div>
+      </div>
+
+      <!-- Coupon 5: Fit Check -->
+      <div class="coupon-card yellow" id="coupon-5" role="button" aria-expanded="false" tabindex="0">
+        <button class="coupon-close-btn" aria-label="Close coupon">&times;</button>
+        <div class="coupon-main">
+          <h2 class="coupon-title">Fit Check 📸</h2>
+          <p class="coupon-description">Redeemable an infinite amount of times. Have me send you a photo fit check of what I am wearing on demand.</p>
+          <button class="coupon-redeem-btn" aria-label="Redeem coupon">Redeem Coupon 🎟️</button>
+          <div class="coupon-stamp">FOR HARNAL &hearts;</div>
+        </div>
+        <div class="coupon-divider-wrap">
+          <div class="coupon-perforated-line"></div>
+        </div>
+        <div class="coupon-stub">
+          <span>📸</span>
+        </div>
+      </div>
+
+    </div>
+    <a href="index.html" class="back-link" id="back-to-letter">&larr; read your letter again 💌</a>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
