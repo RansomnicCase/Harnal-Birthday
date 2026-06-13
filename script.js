@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (musicBtn && bgMusic) {
     // Read state from localStorage
     const shouldPlay = localStorage.getItem('bg-music-playing') === 'true';
+    const savedTime = localStorage.getItem('bg-music-time');
+
+    // Restore music playback time position if it was previously playing
+    if (savedTime && shouldPlay) {
+      bgMusic.currentTime = parseFloat(savedTime);
+    }
 
     if (shouldPlay) {
       // Browsers restrict autoplay, handle standard promise reject gracefully
@@ -26,6 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Save playback position dynamically as the song plays
+    bgMusic.addEventListener('timeupdate', () => {
+      if (!bgMusic.paused) {
+        localStorage.setItem('bg-music-time', bgMusic.currentTime);
+      }
+    });
+
     // Toggle button behavior
     musicBtn.addEventListener('click', (e) => {
       e.stopPropagation(); // prevent triggering other actions
@@ -37,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bgMusic.pause();
         musicBtn.classList.remove('playing');
         localStorage.setItem('bg-music-playing', 'false');
+        localStorage.removeItem('bg-music-time'); // Reset position if explicitly paused
       }
     });
   }
@@ -334,6 +348,24 @@ document.addEventListener('DOMContentLoaded', () => {
   function popBalloon(balloon, color) {
     if (balloon.classList.contains('popping')) return;
     balloon.classList.add('popping');
+
+    // Freeze balloon in its current position
+    const computedStyle = window.getComputedStyle(balloon);
+    const currentTransform = computedStyle.transform;
+    balloon.style.transform = currentTransform;
+    balloon.style.animation = 'none';
+
+    // Force browser reflow to apply styles immediately
+    void balloon.offsetHeight;
+
+    // Apply scale-up and fade-out transition inline
+    balloon.style.transition = 'transform 0.15s cubic-bezier(0.1, 0.8, 0.3, 1), opacity 0.15s cubic-bezier(0.1, 0.8, 0.3, 1)';
+    let targetTransform = 'scale(1.35)';
+    if (currentTransform && currentTransform !== 'none') {
+      targetTransform = `${currentTransform} scale(1.35)`;
+    }
+    balloon.style.transform = targetTransform;
+    balloon.style.opacity = '0';
 
     const rect = balloon.getBoundingClientRect();
     const x = rect.left + rect.width / 2;
